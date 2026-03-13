@@ -24,7 +24,7 @@
     <style>
         /* --- 1. CORE VARIABLES & PREMIUM LIGHT THEME --- */
         :root {
-            --main-color: #235347; 
+            --main-color: #235347;
             --main-hover: #1a3e35;
             --bg-color: #f7f9f8; 
             --card-bg: #ffffff;
@@ -38,7 +38,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
         
         body { 
-            font-family: "Inter", sans-serif; 
+            font-family: "Inter", sans-serif;
             font-size: 15.5px; 
             line-height: 1.8; 
             color: var(--text-main); 
@@ -117,9 +117,8 @@
         .layout-sidebar { width: auto; height: 100%; display: flex; }
         .asek-profile-card { width: 340px; flex-shrink: 0; height: 100%; overflow-y: auto; }
         .asek-profile-card .profile-inner { 
-            background: var(--card-bg); 
-            border-radius: 16px; box-shadow: var(--shadow-soft); overflow: hidden; 
-            min-height: 100%; display: flex; flex-direction: column; border: 1px solid var(--border-color); 
+            background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow-soft); overflow: hidden; 
+            min-height: 100%; display: flex; flex-direction: column; border: 1px solid var(--border-color);
         }
         .asek-profile-card .image { position: relative; height: 45%; min-height: 220px; flex-grow: 1; }
         .asek-profile-card .image .main { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-repeat: no-repeat; background-size: cover; background-position: center; }
@@ -190,8 +189,7 @@
         /* --- 9. BOTTOM FOOTER --- */
         .asek-footer { 
             position: fixed; bottom: 0; left: 0; right: 0; height: 60px; z-index: 50; 
-            background: linear-gradient(to top, rgba(247,249,248,1) 0%, rgba(247,249,248,0.9) 60%, rgba(247,249,248,0) 100%);
-            display: flex; align-items: center; pointer-events: none;
+            background: linear-gradient(to top, rgba(247,249,248,1) 0%, rgba(247,249,248,0.9) 60%, rgba(247,249,248,0) 100%); display: flex; align-items: center; pointer-events: none;
         }
         .asek-footer .container { max-width: 1300px; width: 100%; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; pointer-events: auto; }
         .asek-footer p { color: var(--text-main); font-size: 13px; font-weight: 400; margin: 0;}
@@ -365,66 +363,53 @@
 
                     </div>
 
-                  
-                    
-                    
-                    
-                    
-                    <<div class="layout-content">
-    <div class="asek-content-area">
-        
-        <div id="overview" class="asek-section active">
-            <div class="asek-section-title">
-                <span>Overview</span>
-                <h3>About Me</h3>
-            </div>
-            <div class="text-block">
-                <h4>DAAD Scholar | Studying MSc in LENC at Universität Greifswald, Germany.</h4>
-                <p>Passionate nature conservationist with over three years of experience in biodiversity research, ecological restoration, and sustainable ecosystem management. Currently pursuing an MSc in Landscape Ecology and Nature Conservation at Universität Greifswald as a prestigious DAAD scholarship recipient.</p>
-                <p>Bringing a strong interdisciplinary foundation in zoology, I am specializing in conservation genetics, bioinformatic tools, and genomic data analysis to drive data-informed protection of endangered species.</p>
-                
-                <h4 style="margin-top: 40px; margin-bottom: 20px;">Skills & Expertise</h4>
-                
-                <ul class="list-items">
-                    <li style="margin-bottom: 20px; line-height: 1.8;">
-                        <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Genetics & Bioinformatics:</strong> 
-                        <span style="font-size: 15px; color: var(--text-main);">Genomic Data Analysis, Genetic Conservation, Whole-Genome Sequencing (WGS), Raw genomic data analysis, read quality checking (FastQC), k-mer analysis (Kmergenie), assembly validation (QUAST), <em>De novo</em> sequence assembly preparation using pipelines (ABySS, Platanus, SOAPdenovo2) and mitochondrial genome assembly (NOVOPlasty), sequence analysis (MITOS), and repeat content annotation (RepeatMasker), Evolutionary and phylogenetic analysis (MEGA X), comparative genome analyses (OrthoVenn2), and genomic visualization (OGDRAW), DNA extraction, genetic bird sex identification.</span>
-                    </li>
-                    
-                    <li style="margin-bottom: 20px; line-height: 1.8;">
-                        <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Conservation & Field Ecology:</strong> 
-                        <span style="font-size: 15px; color: var(--text-main);">Biodiversity Assessments, Limnology, Water Quality Analysis, Animal Behavior Observation, Radio Telemetry, Ecological Restoration Planning.</span>
-                    </li>
-                    
-                    <li style="margin-bottom: 20px; line-height: 1.8;">
-                        <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Data Science & Programming:</strong> 
-                        <span style="font-size: 15px; color: var(--text-main);">R Programming, Python, Linux command line, Multivariate Statistics, Principal Component Analysis (PCA), Data Visualization (ggplot2).</span>
-                    </li>
-                    
-                    <li style="margin-bottom: 20px; line-height: 1.8;">
-                        <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Spatial Analysis & Ecological Modeling:</strong> 
-                        <span style="font-size: 15px; color: var(--text-main);">GIS Mapping (QGIS, ArcGIS), Remote Sensing (EnMAP-Box), Supervised and unsupervised classification in the EnMAP-Box, Land Cover Change Detection.</span>
-                    </li>
-                    
-                    <li style="margin-bottom: 20px; line-height: 1.8;">
-                        <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Software & Image Processing:</strong> 
-                        <span style="font-size: 15px; color: var(--text-main);">Adobe Illustrator, Adobe Photoshop, Microsoft Word, Excel, Powerpoint, Picasa, GIMP.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="asek-btn" style="margin-top: 30px;">
-                <a href="#" class="generate-pdf-btn">Download Full CV</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
+                    <div class="layout-content">
+                        <div class="asek-content-area">
                             
+                            <div id="overview" class="asek-section active">
+                                <div class="asek-section-title">
+                                    <span>Overview</span>
+                                    <h3>About Me</h3>
+                                </div>
+                                
+                                <div class="text-block">
+                                    <h4>DAAD Scholar | Studying MSc in LENC at Universität Greifswald, Germany.</h4>
+                                    <p>Passionate nature conservationist with over three years of experience in biodiversity research, ecological restoration, and sustainable ecosystem management. Currently pursuing an MSc in Landscape Ecology and Nature Conservation at Universität Greifswald as a prestigious DAAD scholarship recipient.</p>
+                                    <p>Bringing a strong interdisciplinary foundation in zoology, I am specializing in conservation genetics, bioinformatic tools, and genomic data analysis to drive data-informed protection of endangered species.</p>
+                                    
+                                    <h4 style="margin-top: 40px; margin-bottom: 20px;">Skills & Expertise</h4>
+                                    
+                                    <ul class="list-items">
+                                        <li style="margin-bottom: 20px; line-height: 1.8;">
+                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Genetics & Bioinformatics:</strong> 
+                                            <span style="font-size: 15px; color: var(--text-main);">Genomic Data Analysis, Genetic Conservation, Whole-Genome Sequencing (WGS), Raw genomic data analysis, read quality checking (FastQC), k-mer analysis (Kmergenie), assembly validation (QUAST), <em>De novo</em> sequence assembly preparation using pipelines (ABySS, Platanus, SOAPdenovo2) and mitochondrial genome assembly (NOVOPlasty), sequence analysis (MITOS), and repeat content annotation (RepeatMasker), Evolutionary and phylogenetic analysis (MEGA X), comparative genome analyses (OrthoVenn2), and genomic visualization (OGDRAW), DNA extraction, genetic bird sex identification.</span>
+                                        </li>
+                                        
+                                        <li style="margin-bottom: 20px; line-height: 1.8;">
+                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Conservation & Field Ecology:</strong> 
+                                            <span style="font-size: 15px; color: var(--text-main);">Biodiversity Assessments, Limnology, Water Quality Analysis, Animal Behavior Observation, Radio Telemetry, Ecological Restoration Planning.</span>
+                                        </li>
+                                        
+                                        <li style="margin-bottom: 20px; line-height: 1.8;">
+                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Data Science & Programming:</strong> 
+                                            <span style="font-size: 15px; color: var(--text-main);">R Programming, Python, Linux command line, Multivariate Statistics, Principal Component Analysis (PCA), Data Visualization (ggplot2).</span>
+                                        </li>
+                                        
+                                        <li style="margin-bottom: 20px; line-height: 1.8;">
+                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Spatial Analysis & Ecological Modeling:</strong> 
+                                            <span style="font-size: 15px; color: var(--text-main);">GIS Mapping (QGIS, ArcGIS), Remote Sensing (EnMAP-Box), Supervised and unsupervised classification in the EnMAP-Box, Land Cover Change Detection.</span>
+                                        </li>
+                                        
+                                        <li style="margin-bottom: 20px; line-height: 1.8;">
+                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Software & Image Processing:</strong> 
+                                            <span style="font-size: 15px; color: var(--text-main);">Adobe Illustrator, Adobe Photoshop, Microsoft Word, Excel, Powerpoint, Picasa, GIMP.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="asek-btn" style="margin-top: 30px;">
+                                    <a href="#" class="generate-pdf-btn">Download Full CV</a>
+                                </div>
+                                </div>
 
                             <div id="resume" class="asek-section">
                                 <div class="asek-section-title">
@@ -626,7 +611,7 @@
                                         <p><span class="year">2022</span>: Kibria, M.M., Dilshad, T. & Al Asek, A. - 'Policy implications based on stakeholders’ perceptions for integrated management of the Halda River: Bangabandhu Fisheries Heritage of Bangladesh', <i>Water Policy</i>, 24(3), pp. 517-533.</p>
                                     </div>
                                 </div>
-                            </div>
+                             </div>
 
                             <div id="others" class="asek-section">
                                 <div class="asek-section-title" style="margin-bottom: 15px;">
@@ -634,15 +619,15 @@
                                     <h3>Extra in My Bucket!</h3>
                                 </div>
 
-                                <span class="badge-title" style="margin-top: 0;">Voluntary Experiences</span>
+                                 <span class="badge-title" style="margin-top: 0;">Voluntary Experiences</span>
                                 <div class="timeline-item" style="margin-top: 25px;">
                                     <div class="timeline-header">
-                                        <div><h4>Founder & Advisory Board Member</h4><span class="company">Bicchu (save-wild.com) | Chattogram, Bangladesh</span></div>
+                                         <div><h4>Founder & Advisory Board Member</h4><span class="company">Bicchu (save-wild.com) | Chattogram, Bangladesh</span></div>
                                         <span class="year">Nov 2017 – Present</span>
                                     </div>
-                                    <ul class="list-items">
+                                 <ul class="list-items">
                                         <li>Lead a team of over 100 volunteers to raise awareness about wildlife conservation, mitigate human-animal conflicts, and prevent animal killings.</li>
-                                        <li>Contributed to blog writing and animal checklists to educate the public and reduce superstition.</li>
+                                 <li>Contributed to blog writing and animal checklists to educate the public and reduce superstition.</li>
                                     </ul>
                                 </div>
                                 <div class="timeline-item">
@@ -650,96 +635,96 @@
                                         <div><h4>Executive Member</h4><span class="company">Chittagong University Nature Club (CUNC)</span></div>
                                         <span class="year">Mar 2020 – Oct 2023</span>
                                     </div>
-                                    <ul class="list-items"><li>Contributed to efforts addressing natural degradation and exploitation through awareness campaigns, protests, and tree planting initiatives.</li></ul>
+                                     <ul class="list-items"><li>Contributed to efforts addressing natural degradation and exploitation through awareness campaigns, protests, and tree planting initiatives.</li></ul>
                                 </div>
-                                <div class="timeline-item">
+                                 <div class="timeline-item">
                                     <div class="timeline-header">
                                         <div><h4>Convenor</h4><span class="company">River Club | Chattogram, Bangladesh</span></div>
                                         <span class="year">Sep 2022 – Dec 2023</span>
                                     </div>
-                                    <ul class="list-items"><li>Organized seminars, including World Rivers Day 2023, to raise awareness on water body conservation in Bangladesh.</li></ul>
+                                     <ul class="list-items"><li>Organized seminars, including World Rivers Day 2023, to raise awareness on water body conservation in Bangladesh.</li></ul>
                                 </div>
 
                                 <span class="badge-title">Academic Awards & Scholarships</span>
                                 <ul class="list-items" style="margin-top: 15px;">
                                     <li><strong>DAAD EPOS Full Funded Scholarship</strong> for Completing Masters in Germany</li>
-                                    <li><strong>NST Fellowship</strong> For Extra-Ordinary Thesis Work</li>
+                                     <li><strong>NST Fellowship</strong> For Extra-Ordinary Thesis Work</li>
                                     <li><strong>IDF-PKSF Scholarship</strong> For Undergraduate Research</li>
                                 </ul>
 
-                                <span class="badge-title">Courses & Specializations</span>
+                                 <span class="badge-title">Courses & Specializations</span>
                                 <ul class="list-items" style="margin-top: 15px;">
-                                    <li>Introduction to Biology: Ecology, Evolution, &amp; Biodiversity (Rice University)</li>
+                                     <li>Introduction to Biology: Ecology, Evolution, &amp; Biodiversity (Rice University)</li>
                                     <li>Ecology: Ecosystem Dynamics and Conservation (AMNH)</li>
                                     <li>Ecosystem Services: A Method for Sustainable Development (University of Geneva)</li>
-                                    <li>Aeroecology: Exploring Biodiversity with Radar (University of Leeds)</li>
+                                     <li>Aeroecology: Exploring Biodiversity with Radar (University of Leeds)</li>
                                     <li>Large Marine Ecosystems: Assessment and Management (University of Cape Town)</li>
-                                    <li>Global Health at the Human-Animal-Ecosystem Interface (University of Geneva)</li>
+                                     <li>Global Health at the Human-Animal-Ecosystem Interface (University of Geneva)</li>
                                     <li>Introduction to Environmental Science (Dartmouth College)</li>
                                     <li>Global Environmental Management (Technical University of Denmark)</li>
                                     <li>Climate Change and Indigenous People and Local Communities (Universitat Autònoma de Barcelona)</li>
                                     <li>Tropical Forest Landscapes 101: Conservation &amp; Restoration (Yale University)</li>
                                     <li>Primate Conservation (University of Colorado Boulder)</li>
                                     <li>Writing in the Sciences (Stanford University)</li>
-                                    <li>Introduction to GIS Mapping (University of Toronto)</li>
+                                     <li>Introduction to GIS Mapping (University of Toronto)</li>
                                     <li>R Programming (CVASU)</li>
                                     <li>Linux for Bioinformatics and Computational Biology (NextGen Informatics Ltd)</li>
                                     <li>Leading Teams: Building Effective Team Cultures (University of Illinois)</li>
                                     <li>The Sustainable Development Goals (University of Copenhagen)</li>
-                                </ul>
+                                 </ul>
 
                                 <span class="badge-title">Conferences & Seminars</span>
                                 <ul class="list-items" style="margin-top: 15px;">
-                                    <li><strong>Trending Technology in One Health 2023</strong> - City University of Hong Kong (April 4, 2023)</li>
+                                     <li><strong>Trending Technology in One Health 2023</strong> - City University of Hong Kong (April 4, 2023)</li>
                                     <li><strong>Coastal River Conference 2022</strong> - Kuakata, Bangladesh (January 28–29, 2022)</li>
-                                    <li><strong>6th International Water Conference 2021</strong> - ActionAid Bangladesh (January 27–29, 2021)</li>
+                                     <li><strong>6th International Water Conference 2021</strong> - ActionAid Bangladesh (January 27–29, 2021)</li>
                                     <li><strong>Hill Tracts River Conservation Conference 2019</strong> - Bandarban, Bangladesh (April 19–20, 2019)</li>
-                                </ul>
+                                 </ul>
                             </div>
 
                             <div id="contact" class="asek-section">
                                 <div class="asek-section-title">
                                     <span>Contact</span>
                                     <h3>Feel free to contact me!</h3>
-                                </div>
+                                 </div>
                                 
                                 <ul class="contact-info-list">
-                                    <li>
+                                 <li>
                                         <div class="icon">
-                                            <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z"/></svg>
+                                             <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12h2c0-4.97-4.03-9-9-9v2c3.87 0 7 3.13 7 7zm-4 0h2c0-2.76-2.24-5-5-5v2c1.66 0 3 1.34 3 3z"/></svg>
                                         </div>
-                                        <div>
+                                         <div>
                                             <h3>Phone</h3>
-                                            <span>+49 177 *****321</span>
+                                             <span>+49 177 *****321</span>
                                         </div>
                                     </li>
-                                    <li>
+                                     <li>
                                         <div class="icon">
-                                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                                         </div>
-                                        <div>
+                                         <div>
                                             <h3>Email</h3>
                                             <span><a href="mailto:hi@asek.info">hi@asek.info</a></span>
-                                        </div>
+                                         </div>
                                     </li>
-                                    <li>
+                                     <li>
                                         <div class="icon">
                                             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                                         </div>
                                         <div>
                                             <h3>Address</h3>
                                             <span>17489 Greifswald, Germany</span>
-                                        </div>
+                                         </div>
                                     </li>
                                 </ul>
-                            </div>
+                             </div>
 
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
+         </div>
 
         <div class="asek-footer">
             <div class="container">
@@ -754,7 +739,7 @@
                         <li><a href="https://www.youtube.com/@AsekYT" target="_blank" title="Youtube"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a></li>
                         <li><a href="https://x.com/AbdullahAsek" target="_blank" title="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
                         <li><a href="https://www.save-wild.com" target="_blank" title="Save Wild"><svg viewBox="0 0 24 24"><path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22L6.66,19.7C7.14,19.87,7.64,20,8,20C12,20,17,17,18,12C18,12,21,6,21,2C21,2,18,2,17,8Z"/></svg></a></li>
-                        <li><a href="https://blog.asek.info" target="_blank" title="Blog"><svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h8v2zm3-4H7v-2h11v2zm0-4H7V7h11v2z"/></svg></a></li>
+                         <li><a href="https://blog.asek.info" target="_blank" title="Blog"><svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h8v2zm3-4H7v-2h11v2zm0-4H7V7h11v2z"/></svg></a></li>
                     </ul>
                 </div>
             </div>
@@ -764,16 +749,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+         document.addEventListener("DOMContentLoaded", function() {
             "use strict";
-
             // Vanilla JS: Menu Tab Switching Logic
             function initTabMenu() {
                 const menuItems = document.querySelectorAll('.asek-sidebar-menu ul li');
                 const buttons = document.querySelectorAll('.full-link');
                 const sections = document.querySelectorAll('.asek-section');
                 const mainbar = document.querySelector('.asek-content-area');
-
                 buttons.forEach(button => {
                     button.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -783,11 +766,11 @@
                         if (!parentLi.classList.contains('active')) {
                             // Reset active states
                             menuItems.forEach(item => item.classList.remove('active'));
-                            sections.forEach(sec => sec.classList.remove('active'));
+                             sections.forEach(sec => sec.classList.remove('active'));
 
                             // Add new active states
                             parentLi.classList.add('active');
-                            const targetSection = document.querySelector(targetId);
+                             const targetSection = document.querySelector(targetId);
                             if(targetSection) targetSection.classList.add('active');
 
                             // Scroll handling
@@ -797,11 +780,11 @@
                                 window.scrollTo({
                                     top: contentRight.offsetTop - 145, // Offset for sticky header + dock
                                     behavior: 'smooth'
-                                });
+                                 });
                             } else {
                                 mainbar.scrollTo({
                                     top: 0,
-                                    behavior: 'smooth'
+                                     behavior: 'smooth'
                                 });
                             }
                         }
@@ -809,7 +792,6 @@
                 });
             }
             initTabMenu();
-
             // Vanilla JS: PDF Generation Logic
             const pdfBtns = document.querySelectorAll('.generate-pdf-btn');
             pdfBtns.forEach(btn => {
@@ -818,21 +800,21 @@
 
                     // 1. Create a temporary, hidden container for the PDF
                     const printContainer = document.createElement('div');
-                    printContainer.id = 'cv-print-container'; 
+                     printContainer.id = 'cv-print-container'; 
                     
                     // 2. Inject specific print CSS to make it ATS-friendly, tight, justified, and properly spaced
                     // We FORCE black text and white backgrounds here so the Dark Theme doesn't print!
                     const printStyles = document.createElement('style');
                     printStyles.innerHTML = `
                         #cv-print-container { 
-                            padding: 0; 
+                             padding: 0; 
                             font-family: "Inter", sans-serif; 
                             color: #1a1a1a !important; 
                             background: #ffffff !important;
-                        }
+                         }
                         
                         #cv-print-container p, #cv-print-container li, #cv-print-container span { 
-                            font-size: 10.5pt !important; 
+                             font-size: 10.5pt !important; 
                             line-height: 1.4 !important; 
                             text-align: justify !important; 
                             margin-bottom: 4px !important; 
@@ -840,49 +822,75 @@
                         }
                         
                         #cv-print-container .asek-section-title h3 { 
-                            color: #235347 !important; 
+                            color: #235347 !important;
                             font-size: 16pt !important; 
                             font-family: "Lora", serif !important;
                             margin-bottom: 2px !important; 
                             margin-top: 15px !important;
                         }
                         #cv-print-container h2 { 
-                            color: #235347 !important; 
+                            color: #235347 !important;
                             font-size: 14pt !important; 
                             font-family: "Lora", serif !important;
                             margin-top: 10px !important; 
                             margin-bottom: 5px !important; 
-                            padding-bottom: 2px !important; 
+                            padding-bottom: 2px !important;
                             border-bottom: 1px solid #235347 !important; 
                         }
-                        #cv-print-container h4 { font-size: 11.5pt !important; margin-bottom: 0 !important; color: #111111 !important; font-weight: 600 !important;}
+                        #cv-print-container h4 { font-size: 11.5pt !important;
+                            margin-bottom: 0 !important; color: #111111 !important; font-weight: 600 !important;}
                         
                         #cv-print-container .asek-section-title { margin-bottom: 10px !important; }
 
-                        #cv-print-container .extra h3 { font-size: 20pt !important; margin-top: 0 !important; margin-bottom: 2px !important; color: #235347 !important; font-family: "Lora", serif !important;}
-                        #cv-print-container .extra span { font-size: 11.5pt !important; font-weight: 500 !important; color: #235347 !important; display: block !important; margin-bottom: 15px !important;}
+                        #cv-print-container .extra h3 { font-size: 20pt !important;
+                            margin-top: 0 !important; margin-bottom: 2px !important; color: #235347 !important; font-family: "Lora", serif !important;}
+                        #cv-print-container .extra span { font-size: 11.5pt !important;
+                            font-weight: 500 !important; color: #235347 !important; display: block !important; margin-bottom: 15px !important;}
                         
-                        #cv-print-container .timeline-item { padding-bottom: 5px !important; margin-bottom: 8px !important; border-bottom: none !important; }
-                        #cv-print-container .timeline-header { display: flex !important; justify-content: space-between !important; align-items: baseline !important; margin-bottom: 2px !important; }
-                        #cv-print-container .timeline-header > div { display: flex; flex-direction: column; }
-                        #cv-print-container span.company { font-size: 10.5pt !important; font-weight: normal !important; font-style: italic !important; color: #555555 !important; display: block !important; }
+                        #cv-print-container .timeline-item { padding-bottom: 5px !important;
+                            margin-bottom: 8px !important; border-bottom: none !important; }
+                        #cv-print-container .timeline-header { display: flex !important;
+                            justify-content: space-between !important; align-items: baseline !important; margin-bottom: 2px !important; }
+                        #cv-print-container .timeline-header > div { display: flex;
+                            flex-direction: column; }
+                        #cv-print-container span.company { font-size: 10.5pt !important;
+                            font-weight: normal !important; font-style: italic !important; color: #555555 !important; display: block !important;
+                        }
                         
-                        #cv-print-container .skill-wrap { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 8px !important; margin-bottom: 15px !important; }
-                        #cv-print-container .skill-wrap span { display: inline-block !important; border: 1px solid #dddddd !important; color: #111111 !important; padding: 3px 8px !important; border-radius: 4px !important; font-size: 9.5pt !important; font-weight: 500 !important; background: transparent !important; }
+                        #cv-print-container .skill-wrap { display: flex !important;
+                            flex-wrap: wrap !important; gap: 6px !important; margin-top: 8px !important; margin-bottom: 15px !important;
+                        }
+                        #cv-print-container .skill-wrap span { display: inline-block !important;
+                            border: 1px solid #dddddd !important; color: #111111 !important; padding: 3px 8px !important; border-radius: 4px !important; font-size: 9.5pt !important;
+                            font-weight: 500 !important; background: transparent !important; }
 
-                        #cv-print-container span.year { padding: 0 !important; font-size: 10.5pt !important; border: none !important; color: #111111 !important; font-weight: 600 !important; background: transparent !important;}
+                        #cv-print-container span.year { padding: 0 !important;
+                            font-size: 10.5pt !important; border: none !important; color: #111111 !important; font-weight: 600 !important;
+                            background: transparent !important;}
                         
                         #cv-print-container .pub-grid { display: block; }
-                        #cv-print-container .pub-card { margin-bottom: 8px !important; padding: 0 !important; border: none !important; background: transparent !important; box-shadow: none !important; transform: none !important; }
-                        #cv-print-container .pub-card h4 { font-size: 11.5pt !important; margin-bottom: 2px !important; color: #111111 !important;}
+                        #cv-print-container .pub-card { margin-bottom: 8px !important;
+                            padding: 0 !important; border: none !important; background: transparent !important; box-shadow: none !important; transform: none !important;
+                        }
+                        #cv-print-container .pub-card h4 { font-size: 11.5pt !important;
+                            margin-bottom: 2px !important; color: #111111 !important;}
                         
-                        #cv-print-container .badge-title { margin: 10px 0 5px 0 !important; padding: 0 !important; font-size: 12pt !important; background: transparent !important; color: #235347 !important; border-radius: 0 !important; display: block !important; font-weight: bold; border: none !important;}
+                        #cv-print-container .badge-title { margin: 10px 0 5px 0 !important;
+                            padding: 0 !important; font-size: 12pt !important; background: transparent !important; color: #235347 !important; border-radius: 0 !important; display: block !important; font-weight: bold;
+                            border: none !important;}
                         
-                        #cv-print-container .contact-details { margin-top: 5px !important; background: transparent !important; color: #1a1a1a !important; padding: 0 !important; border: none !important;}
-                        #cv-print-container .contact-details ul li { display: inline-block; margin-right: 15px; border: none !important; padding: 0 !important; background: transparent !important; }
-                        #cv-print-container .contact-details ul li strong { display: inline-block; font-size: 10.5pt; font-weight: 600; text-transform: capitalize; opacity: 1; margin: 0 !important; color: var(--text-main) !important; }
-                        #cv-print-container .contact-details ul li strong::after { content: ': '; color: #1a1a1a !important; }
-                        #cv-print-container .contact-details ul li span, #cv-print-container .contact-details ul li a { display: inline-block; font-size: 10.5pt !important; color: #333333 !important;}
+                        #cv-print-container .contact-details { margin-top: 5px !important;
+                            background: transparent !important; color: #1a1a1a !important; padding: 0 !important; border: none !important;}
+                        #cv-print-container .contact-details ul li { display: inline-block;
+                            margin-right: 15px; border: none !important; padding: 0 !important; background: transparent !important;
+                        }
+                        #cv-print-container .contact-details ul li strong { display: inline-block;
+                            font-size: 10.5pt; font-weight: 600; text-transform: capitalize; opacity: 1; margin: 0 !important; color: var(--text-main) !important;
+                        }
+                        #cv-print-container .contact-details ul li strong::after { content: ': ';
+                            color: #1a1a1a !important; }
+                        #cv-print-container .contact-details ul li span, #cv-print-container .contact-details ul li a { display: inline-block;
+                            font-size: 10.5pt !important; color: #333333 !important;}
                         
                         #cv-print-container .contact-info-list { display: none !important; } 
 
@@ -897,7 +905,7 @@
                         #cv-print-container li,
                         #cv-print-container .skill-wrap,
                         #cv-print-container .text-block { 
-                            page-break-inside: avoid !important; 
+                             page-break-inside: avoid !important; 
                             break-inside: avoid !important; 
                             -webkit-column-break-inside: avoid !important;
                         }
@@ -911,10 +919,9 @@
                     const projects = document.getElementById('projects').cloneNode(true);
                     const publications = document.getElementById('publications').cloneNode(true);
                     const others = document.getElementById('others').cloneNode(true);
-
+                    
                     // 4. Clean up the cloned data and stack them tightly
                     const sections = [profileInfo, overview, resume, projects, publications, others];
-                    
                     sections.forEach(sec => {
                         // Remove buttons and extra breaks
                         sec.querySelectorAll('.asek-btn').forEach(el => el.remove());
@@ -923,7 +930,7 @@
                         // Remove section pre-titles
                         sec.querySelectorAll('.asek-section-title span').forEach(el => el.remove());
                         
-                        // Overview specific cleanup
+                         // Overview specific cleanup
                         if(sec.id === 'overview') {
                             const mainTitle = sec.querySelector('.asek-section-title');
                             if (mainTitle) mainTitle.remove(); 
@@ -955,7 +962,6 @@
 
                     // 6. Generate PDF
                     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                    
                     if (isMobile) {
                         html2pdf().set(opt).from(printContainer).save();
                     } else {
@@ -969,5 +975,3 @@
     </script>
 </body>
 </html>
-
-
