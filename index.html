@@ -98,7 +98,6 @@
         .asek-sidebar-menu ul li:hover { transform: scale(1.1); background: #f0f4f2; border-color: var(--border-color); }
         .asek-sidebar-menu ul li.active { background: var(--main-color); border-color: var(--main-color); transform: scale(1.1); box-shadow: 0 6px 15px rgba(35, 83, 71, 0.25); }
         
-        /* FIXED: Added color properties to ensure current-color SVGs update correctly */
         .asek-sidebar-menu ul li .svg { width: 20px; height: 20px; fill: var(--text-main); color: var(--text-main); transition: all 0.3s ease; }
         .asek-sidebar-menu ul li:hover .svg { fill: var(--main-color); color: var(--main-color); }
         .asek-sidebar-menu ul li.active .svg { fill: #fff; color: #fff; }
@@ -319,14 +318,14 @@
                                     <a class="full-link" href="#resume"></a>
                                 </li>
                                 <li>
-                                    <svg class="svg" viewBox="0 0 1024 1024"><path d="M824.8 1003.2H203.2c-12.8 0-25.6-2.4-37.6-7.2-11.2-4.8-21.6-12-30.4-20.8-8.8-8.8-16-19.2-20.8-30.4-4.8-12-7.2-24-7.2-37.6V260c0-12.8 2.4-25.6 7.2-37.6 4.8-11.2 12-21.6 20.8-30.4 8.8-8.8 19.2-16 30.4-20.8 12-4.8 24-7.2 37.6-7.2h94.4v48H203.2c-26.4 0-48 21.6-48 48v647.2c0 26.4 21.6 48 48 48h621.6c26.4 0 48-21.6 48-48V260c0-26.4-21.6-48-48-48H730.4v-48H824c12.8 0 25.6 2.4 37.6 7.2 11.2 4.8 21.6 12 30.4 20.8 8.8 8.8 16 19.2 20.8 30.4 4.8 12 7.2 24 7.2 37.6v647.2c0 12.8-2.4 25.6-7.2 37.6-4.8 11.2-12 21.6-20.8 30.4-8.8 8.8-19.2 16-30.4 20.8-11.2 4.8-24 7.2-36.8 7.2z"/><path d="M752.8 308H274.4V152.8c0-32.8 26.4-60 60-60h61.6c22.4-44 67.2-72.8 117.6-72.8 50.4 0 95.2 28.8 117.6 72.8h61.6c32.8 0 60 26.4 60 60v155.2m-430.4-48h382.4V152.8c0-6.4-5.6-12-12-12H598.4l-5.6-16c-12-33.6-43.2-56-79.2-56s-67.2 22.4-79.2 56l-5.6 16H334.4c-6.4 0-12 5.6-12 12v107.2zM432.8 792c-6.4 0-12-2.4-16.8-7.2L252.8 621.6c-4.8-4.8-7.2-10.4-7.2-16.8s2.4-12 7.2-16.8c4.8-4.8 10.4-7.2 16.8-7.2s12 2.4 16.8 7.2L418.4 720c4 4 8.8 5.6 13.6 5.6s10.4-1.6 13.6-5.6l295.2-295.2c4.8-4.8 10.4-7.2 16.8-7.2s12 2.4 16.8 7.2c9.6 9.6 9.6 24 0 33.6L449.6 784.8c-4.8 4-11.2 7.2-16.8 7.2z"/></svg>
-                                    <span>Projects</span>
-                                    <a class="full-link" href="#projects"></a>
-                                </li>
-                                <li>
                                     <svg class="svg" viewBox="0 0 1024 1024"><path d="M832 992H192c-35.2 0-64-28.8-64-64V160c0-35.2 28.8-64 64-64h320V64h64v32h320c35.2 0 64 28.8 64 64v768c0 35.2-28.8 64-64 64zM192 128c-17.6 0-32 14.4-32 32v768c0 17.6 14.4 32 32 32h640c17.6 0 32-14.4 32-32V160c0-17.6-14.4-32-32-32H192z"/><path d="M368 224h288v48H368zM368 288h288v48H368zM368 352h288v48H368zM368 416h288v48H368z"/><path d="M336 576h352v32H336z"/><path d="M336 640h352v32H336z"/><path d="M432 704h160v32H432z"/><path d="M432 768h160v32H432z"/></svg>
                                     <span>Publications</span>
                                     <a class="full-link" href="#publications"></a>
+                                </li>
+                                <li>
+                                    <svg class="svg" viewBox="0 0 1024 1024"><path d="M824.8 1003.2H203.2c-12.8 0-25.6-2.4-37.6-7.2-11.2-4.8-21.6-12-30.4-20.8-8.8-8.8-16-19.2-20.8-30.4-4.8-12-7.2-24-7.2-37.6V260c0-12.8 2.4-25.6 7.2-37.6 4.8-11.2 12-21.6 20.8-30.4 8.8-8.8 19.2-16 30.4-20.8 12-4.8 24-7.2 37.6-7.2h94.4v48H203.2c-26.4 0-48 21.6-48 48v647.2c0 26.4 21.6 48 48 48h621.6c26.4 0 48-21.6 48-48V260c0-26.4-21.6-48-48-48H730.4v-48H824c12.8 0 25.6 2.4 37.6 7.2 11.2 4.8 21.6 12 30.4 20.8 8.8 8.8 16 19.2 20.8 30.4 4.8 12 7.2 24 7.2 37.6v647.2c0 12.8-2.4 25.6-7.2 37.6-4.8 11.2-12 21.6-20.8 30.4-8.8 8.8-19.2 16-30.4 20.8-11.2 4.8-24 7.2-36.8 7.2z"/><path d="M752.8 308H274.4V152.8c0-32.8 26.4-60 60-60h61.6c22.4-44 67.2-72.8 117.6-72.8 50.4 0 95.2 28.8 117.6 72.8h61.6c32.8 0 60 26.4 60 60v155.2m-430.4-48h382.4V152.8c0-6.4-5.6-12-12-12H598.4l-5.6-16c-12-33.6-43.2-56-79.2-56s-67.2 22.4-79.2 56l-5.6 16H334.4c-6.4 0-12 5.6-12 12v107.2zM432.8 792c-6.4 0-12-2.4-16.8-7.2L252.8 621.6c-4.8-4.8-7.2-10.4-7.2-16.8s2.4-12 7.2-16.8c4.8-4.8 10.4-7.2 16.8-7.2s12 2.4 16.8 7.2L418.4 720c4 4 8.8 5.6 13.6 5.6s10.4-1.6 13.6-5.6l295.2-295.2c4.8-4.8 10.4-7.2 16.8-7.2s12 2.4 16.8 7.2c9.6 9.6 9.6 24 0 33.6L449.6 784.8c-4.8 4-11.2 7.2-16.8 7.2z"/></svg>
+                                    <span>Projects</span>
+                                    <a class="full-link" href="#projects"></a>
                                 </li>
                                 <li>
                                     <svg class="svg" viewBox="0 0 360 360"><path d="M50,300 L180,100 L250,200 L310,150 L360,300 Z" fill="currentColor"/><path d="M170,110 L180,80 L190,110 Z" fill="white"/><rect fill="currentColor" height="30" width="4" x="178" y="50"/><path d="M182,50 L200,60 L182,70 Z" fill="currentColor"/></svg>
@@ -397,12 +396,12 @@
                                         
                                         <li style="margin-bottom: 20px; line-height: 1.8;">
                                             <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Spatial Analysis & Ecological Modeling:</strong> 
-                                            <span style="font-size: 15px; color: var(--text-main);">GIS Mapping (QGIS, ArcGIS), Remote Sensing (EnMAP-Box), Supervised and unsupervised classification in the EnMAP-Box, Land Cover Change Detection.</span>
+                                            <span style="font-size: 15px; color: var(--text-main);">GIS Mapping (QGIS, ArcGIS, Google Earth Pro), Remote Sensing (EnMAP-Box), Supervised and unsupervised classification in the EnMAP-Box, Land Cover Change Detection.</span>
                                         </li>
                                         
                                         <li style="margin-bottom: 20px; line-height: 1.8;">
-                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Software & Image Processing:</strong> 
-                                            <span style="font-size: 15px; color: var(--text-main);">Adobe Illustrator, Adobe Photoshop, Microsoft Word, Excel, Powerpoint, Picasa, GIMP.</span>
+                                            <strong style="color: var(--main-color); font-family: 'Lora', serif; font-size: 17px; letter-spacing: 0.3px;">Softwares:</strong> 
+                                            <span style="font-size: 15px; color: var(--text-main);">Zotero, Adobe Illustrator, Adobe Photoshop, Microsoft Word, Excel, Powerpoint, Picasa, GIMP, KineMaster, Shotcut, Adobe Premier, Wondershare Filmora .</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -417,7 +416,77 @@
                                     <h3>Education and Experience</h3>
                                 </div>
 
-                                <h2 style="border-bottom: 1px solid var(--border-color); padding-bottom:10px; margin-bottom: 25px; font-size: 24px; color: var(--text-dark);">Education</h2>
+                                <h2 style="border-bottom: 1px solid var(--border-color); padding-bottom:10px; margin-bottom: 25px; font-size: 24px; color: var(--text-dark);">Experience</h2>
+                                <div class="timeline-item">
+                                    <div class="timeline-header">
+                                        <div>
+                                            <h4>Student Research Assistant</h4>
+                                            <span class="company">Universität Greifswald | Greifswald, Germany</span>
+                                        </div>
+                                        <span class="year">May 2025 – Dec 2025</span>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li>Designed the webpage for the Climate Change Conference and contributed to the development of an interactive Moodle learning platform for the module Principles of Landscape Ecology.</li>
+                                        <li>Managed digital learning environments using Moodle and curated multimedia scientific materials to support the academic modules Principles of Landscape Ecology and Climate Change.</li>
+                                        <li>Facilitated academic seminars and coordinated communications to support the effective delivery of climate science curricula to student cohorts.</li>
+                                    </ul>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-header">
+                                        <div>
+                                            <h4>Research Associate</h4>
+                                            <span class="company">Halda River Research Laboratory | Chattogram, Bangladesh</span>
+                                        </div>
+                                        <span class="year">April 2021 – July 2024</span>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li>Conducted comprehensive aquatic biodiversity surveys, limnological assessments, and activities across six major ecological research projects.</li>
+                                        <li>Co-developed and implemented an integrated ecosystem management plan in collaboration with international stakeholders, including the International Fund for Agricultural Development (IFAD) and the Palli Karma-Sahayak Foundation (PKSF), contributing to regional conservation and sustainable resource management strategies.</li>
+                                        <li>Involved in genetic characterization initiatives for the endangered Ganges River Dolphin (Platanista gangetica).</li>
+                                    </ul>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-header">
+                                        <div>
+                                            <h4>Research Assistant</h4>
+                                            <span class="company">Halda River Research Laboratory | Chattogram, Bangladesh</span>
+                                        </div>
+                                        <span class="year">Jan 2020 – Dec 2020</span>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li>Involved in computational pipelines for the whole-genome sequencing of the endangered Ganges River Dolphin (Platanista gangetica) and four major Indian carp species.</li>
+                                        <li>Performed comprehensive genomic workflows, including sample collection, DNA extraction, raw sequencing data quality control, de novo genome assembly, and data analysis.</li>
+                                        <li>Conducted phylogenetic analyses to investigate population structure and evolutionary relationships.</li>
+                                        <li>Deposition of genome assembly data in the public database of the National Center for Biotechnology Information (NCBI).</li>
+                                    </ul>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-header">
+                                        <div>
+                                            <h4>Research Intern</h4>
+                                            <span class="company">Halda River Research Laboratory | Chattogram, Bangladesh</span>
+                                        </div>
+                                        <span class="year">Jan 2019 – Nov 2020</span>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li>Developed technical expertise in operating analytical laboratory instruments, performing statistical data analysis, and designing statistically validated field survey protocols.</li>
+                                    </ul>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-header">
+                                        <div>
+                                            <h4>Research Assistant</h4>
+                                            <span class="company">Center for Environmental and Geographic Information Services (CEGIS) | Bangladesh</span>
+                                        </div>
+                                        <span class="year">Nov 2018 – Dec 2018</span>
+                                    </div>
+                                    <ul class="list-items">
+                                        <li>Conducted benthic and zooplankton sampling, taxonomic identification, and equipment calibration to support comprehensive ecological baseline assessments.</li>
+                                        <li>Analyzed and synthesized ecological field data into detailed technical reports used to inform regional habitat conservation and management strategies.</li>
+                                    </ul>
+                                </div>
+
+                                <h2 style="border-bottom: 1px solid var(--border-color); padding-bottom:10px; margin: 45px 0 25px 0; font-size: 24px; color: var(--text-dark);">Education</h2>
                                 <div class="timeline-item">
                                     <div class="timeline-header">
                                         <div>
@@ -474,59 +543,56 @@
                                     </ul>
                                     <p><strong>Relevant Specialized Coursework:</strong> Completed theoretical and practical courses on animals (every phylum), their environments, Systematics, Embryology, Cytology, Histology, Genetics, Physiology, Ethology, Ecology, Evolution, Biodiversity, Zoogeography, Paleontology, Oceanography, Applied Zoology, Human Reproduction, Human Diseases, Research Methodology, Botany, Microbiology, Biochemistry and Molecular Biology, Biophysics, Biostatistics, Bioinformatics, Biotechnology, and Genetic Engineering.</p>
                                 </div>
-
-                                <h2 style="border-bottom: 1px solid var(--border-color); padding-bottom:10px; margin: 45px 0 25px 0; font-size: 24px; color: var(--text-dark);">Experience</h2>
-                                <div class="timeline-item">
-                                    <div class="timeline-header">
-                                        <div>
-                                            <h4>Student Research Assistant</h4>
-                                            <span class="company">Universität Greifswald</span>
-                                        </div>
-                                        <span class="year">May 2025 - Dec 2025</span>
-                                    </div>
-                                    <p>Worked for organizing web content, managing webpages, and arranging conferences for the Climate Change module. Currently, responsible for managing the Moodle platform and editing video materials for the Principles of Landscape Ecology module.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-header">
-                                        <div>
-                                            <h4>Research Associate</h4>
-                                            <span class="company">Halda River Research Laboratory</span>
-                                        </div>
-                                        <span class="year">April 2021 - July 2024</span>
-                                    </div>
-                                    <p>Contributed to six projects related to animal surveys, limnological analysis, the development of a management plan for protecting biodiversity and securing ecosystem services of the Halda River, the genetic characterization of the globally endangered aquatic mammal Platanista gangetica, and the effects of increasing salinity on aquatic animals.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-header">
-                                        <div>
-                                            <h4>Research Assistant</h4>
-                                            <span class="company">Halda River Research Laboratory</span>
-                                        </div>
-                                        <span class="year">Jan 2020 - Dec 2020</span>
-                                    </div>
-                                    <p>Contributed to the whole-genome sequencing of four major carps and a river dolphin, playing roles in sample collection, DNA extraction, genomic raw data analysis, assembly preparation, data interpretation, phylogenetic analysis, and more.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-header">
-                                        <div>
-                                            <h4>Research Intern</h4>
-                                            <span class="company">Halda River Research Laboratory</span>
-                                        </div>
-                                        <span class="year">Jan 2019 - Nov 2020</span>
-                                    </div>
-                                    <p>Learned to operate lab instruments, create questionnaires, conduct statistical analysis, and gained proficiency in software.</p>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-header">
-                                        <div>
-                                            <h4>Research Assistant</h4>
-                                            <span class="company">CEGIS</span>
-                                        </div>
-                                        <span class="year">Nov 2018 - Dec 2018</span>
-                                    </div>
-                                    <p>Accomplished a project that involved tasks such as reviewing literature, preparing and operating equipment, collecting and identifying benthos and zooplankton, and drafting a report.</p>
-                                </div>
                             </div>
+
+                            <div id="publications" class="asek-section">
+                                <div class="asek-section-title">
+                                    <span>Publications</span>
+                                    <h3>List of Scientific Publications</h3>
+                                </div>
+                                <div class="pub-grid">
+                                    <div class="pub-card">
+                                        <h4>Environmental and Human Factors Affecting Indian Major Carps' Spawning in Halda River, Bangladesh</h4>
+                                        <p>Akther, K.R., Hossain, M.A., <strong>Al Asek, A.</strong>, Kibria, M.M. and Roy, N.C. (2024) 'Environmental and human factors affecting Indian major carps' spawning in Halda River, Bangladesh', <i>Archives of Agriculture and Environmental Science</i>, 9(4), pp. 812-819.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Analysis of 'Kums' Depth: Impacts on the Natural Carp Spawning Habitat of the Halda River of Bangladesh</h4>
+                                        <p>Arafeen, M.S., <strong>Al Asek, A.</strong>, Siam, M.A.H., Owaresat, J.K., Suhag, M.B., Saha, M., Newaj, A.S. and Kibria, M.M. (2024) 'Analysis of ‘Kums’ depth: Impacts on the natural carp spawning habitat of the Halda River of Bangladesh', <i>Chittagong University Journal of Biological Sciences</i>, pp. 103-114.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Identifying the Most Productive Hatching Environment for Carp Fish Fry at the Halda River, Bangladesh</h4>
+                                        <p>Arafeen, M.S., Owaresat, J.K., Islam, M.R., Foysal, E., Siam, M.A.H., <strong>Al Asek, A.</strong>, Suhag, B. and Kibria, M.M. (2024) 'Identifying the most productive hatching environment for carp fish fry at the Halda river, Bangladesh', <i>Bangladesh Journal of Zoology</i>, 52(3), pp. 197-207.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Present Status of Fish Diversity of the Kaptai Lake, Bangladesh</h4>
+                                        <p>Arafeen, M.S., Siam, M.A.H., Tasnim, J., Owaresat, J.K., <strong>Al Asek, A.</strong>, Newaj, A.S., Kibria, M.M. and Haidar, M.I. (2024) 'Present Status of Fish Diversity of the Kaptai Lake, Bangladesh', <i>Journal of the Bangladesh Agricultural University</i>, 22(4), pp. 506-516.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Fish Diversity and Socio-Economic Status of Gomti River Fishermen at Cumilla Sadar Bangladesh</h4>
+                                        <p>Arafeen, M.S., Tasnim, J., Siam, M.A.H., Owaresat, J.K., <strong>Al Asek, A.</strong>, Sara, S.A. and Kibria, M.M. (2024) 'Fish Diversity and Socio-Economic Status of Gomti River Fishermen at Cumilla Sadar Bangladesh', <i>Bangladesh Journal of Zoology</i>, 52(2), pp. 185-199.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Fish Diversity of the Titas River, Bangladesh: Present Status and Conservation Needs</h4>
+                                        <p>Juhra, F.T., <strong>Al Asek, A.</strong>, Arafeen, M.S., Siam, M.A.H., Owaresat, J.K. and Kibria, M.M. (2024) 'Fish Diversity of the Titas River, Bangladesh: Present Status and Conservation Needs', <i>Life as Basic Science: An Overview and Prospects for the Future</i>, 1, pp. 131-143.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>A Comparative Study on the Growth and Mortality of Rohu Fish, Labeo Rohita, of the Halda River (Wild) and Induced Hatchery (Artificial) Sources</h4>
+                                        <p>Kibria, M.M., Sara, S.A., Newaj, A.S., Santo, M.K.H., Ansar, C.K.I., <strong>Al Asek, A.</strong>, Suhag, M.B., Siam, M.A.H. and Arafeen, M.S. (2024) 'A Comparative Study on the Growth and Mortality of Rohu Fish, Labeo rohita, of the Halda River (Wild) and Induced Hatchery (Artificial) Sources', <i>Chittagong University Journal of Biological Sciences</i>, pp. 83-90.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Hormonal (sGRnH) Doses Optimization with the Ages of Brood Fish in Induced Breeding of Mystus Tengara</h4>
+                                        <p>Fakhruddin, M., Akther, K.R., Roy, N.C., <strong>Al Asek, A.</strong> and Rahman, M.R. (2023) 'Hormonal (sGRnH) Doses Optimization with the Ages of Brood Fish in Induced Breeding of Mystus tengara (Hamilton, 1822)', <i>Journal of Aquaculture & Livestock Production</i>, 124, pp. 2-8.</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Current Status of Ganges River Dolphin in Halda River, Chittagong, Bangladesh</h4>
+                                        <p>Kibria, M., Siam, M.A., Owaresat, J.K., Khan, A.R., <strong>Al Asek, A.</strong> and Nahian, S.M.A. (2023) 'Current Status of Ganges River Dolphin (Platanista gangetica) in Halda River, Chittagong, Bangladesh', <i>Asian Journal of Conservation Biology</i>, 12(1).</p>
+                                    </div>
+                                    <div class="pub-card">
+                                        <h4>Policy Implications Based on Stakeholders’ Perceptions for Integrated Management of the Halda River</h4>
+                                        <p>Kibria, M.M., Dilshad, T. and <strong>Al Asek, A.</strong> (2022) 'Policy implications based on stakeholders’ perceptions for integrated management of the Halda River: Bangabandhu Fisheries Heritage of Bangladesh', <i>Water Policy</i>, 24(3), pp. 517-533.</p>
+                                    </div>
+                                </div>
+                             </div>
 
                             <div id="projects" class="asek-section">
                                 <div class="asek-section-title">
@@ -600,55 +666,6 @@
                                 </div>
                             </div>
 
-                            <div id="publications" class="asek-section">
-                                <div class="asek-section-title">
-                                    <span>Publications</span>
-                                    <h3>List of Scientific Publications</h3>
-                                </div>
-                                <div class="pub-grid">
-                                    <div class="pub-card">
-                                        <h4>Environmental and Human Factors Affecting Indian Major Carps' Spawning in Halda River, Bangladesh</h4>
-                                        <p><span class="year">2024</span>: Akther, K.R., Hossain, M.A., Al Asek, A., Kibria, M.M. & Roy, N.C. - 'Environmental and human factors affecting Indian major carps' spawning in Halda River, Bangladesh', <i>Archives of Agriculture and Environmental Science</i>, 9(4), pp. 812-819.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Analysis of 'Kums' Depth: Impacts on the Natural Carp Spawning Habitat of the Halda River of Bangladesh</h4>
-                                        <p><span class="year">2024</span>: Arafeen, M.S., Al Asek, A., Siam, M.A.H., Owaresat, J.K., Suhag, M.B., Saha, M., Newaj, A.S. & Kibria, M.M. - 'Analysis of ‘Kums’ depth: Impacts on the natural carp spawning habitat of the Halda River of Bangladesh', <i>Chittagong University Journal of Biological Sciences</i>, pp. 103-114.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Identifying the Most Productive Hatching Environment for Carp Fish Fry at the Halda River, Bangladesh</h4>
-                                        <p><span class="year">2024</span>: Arafeen, M.S., Owaresat, J.K., Islam, M.R., Foysal, E., Siam, M.A.H., Al Asek, A., Suhag, B. & Kibria, M.M. - 'Identifying the most productive hatching environment for carp fish fry at the Halda river, Bangladesh', <i>Bangladesh Journal of Zoology</i>, 52(3), pp. 197-207.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Present Status of Fish Diversity of the Kaptai Lake, Bangladesh</h4>
-                                        <p><span class="year">2024</span>: Arafeen, M.S., Siam, M.A.H., Tasnim, J., Owaresat, J.K., Al Asek, A., Newaj, A.S., Kibria, M.M. & Haidar, M.I. - 'Present Status of Fish Diversity of the Kaptai Lake, Bangladesh', <i>Journal of the Bangladesh Agricultural University</i>, 22(4), pp. 506-516.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Fish Diversity and Socio-Economic Status of Gomti River Fishermen at Cumilla Sadar Bangladesh</h4>
-                                        <p><span class="year">2024</span>: Arafeen, M.S., Tasnim, J., Siam, M.A.H., Owaresat, J.K., Al Asek, A., Sara, S.A. & Kibria, M.M. - 'Fish Diversity and Socio-Economic Status of Gomti River Fishermen at Cumilla Sadar Bangladesh', <i>Bangladesh Journal of Zoology</i>, 52(2), pp. 185-199.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Fish Diversity of the Titas River, Bangladesh: Present Status and Conservation Needs</h4>
-                                        <p><span class="year">2024</span>: Juhra, F.T., Al Asek, A., Arafeen, M.S., Siam, M.A.H., Owaresat, J.K. & Kibria, M.M. - 'Fish Diversity of the Titas River, Bangladesh: Present Status and Conservation Needs', <i>Life as Basic Science: An Overview and Prospects for the Future</i>, 1, pp. 131-143.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>A Comparative Study on the Growth and Mortality of Rohu Fish, Labeo Rohita, of the Halda River (Wild) and Induced Hatchery (Artificial) Sources</h4>
-                                        <p><span class="year">2024</span>: Kibria, M.M., Sara, S.A., Newaj, A.S., Santo, M.K.H., Ansar, C.K.I., Al Asek, A., Suhag, M.B., Siam, M.A.H. & Arafeen, M.S. - 'A Comparative Study on the Growth and Mortality of Rohu Fish, Labeo rohita, of the Halda River (Wild) and Induced Hatchery (Artificial) Sources', <i>Chittagong University Journal of Biological Sciences</i>, pp. 83-90.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Hormonal (sGRnH) Doses Optimization with the Ages of Brood Fish in Induced Breeding of Mystus Tengara</h4>
-                                        <p><span class="year">2023</span>: Fakhruddin, M., Akther, K.R., Roy, N.C., Al Asek, A. & Rahman, M.R. - 'Hormonal (sGRnH) Doses Optimization with the Ages of Brood Fish in Induced Breeding of Mystus tengara (Hamilton, 1822)', <i>Journal of Aquaculture & Livestock Production</i>, 124, pp. 2-8.</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Current Status of Ganges River Dolphin in Halda River, Chittagong, Bangladesh</h4>
-                                        <p><span class="year">2023</span>: Kibria, M., Siam, M.A., Owaresat, J.K., Khan, A.R., Al Asek, A. & Nahian, S.M.A. - 'Current Status of Ganges River Dolphin (Platanista gangetica) in Halda River, Chittagong, Bangladesh', <i>Asian Journal of Conservation Biology</i>, 12(1).</p>
-                                    </div>
-                                    <div class="pub-card">
-                                        <h4>Policy Implications Based on Stakeholders’ Perceptions for Integrated Management of the Halda River</h4>
-                                        <p><span class="year">2022</span>: Kibria, M.M., Dilshad, T. & Al Asek, A. - 'Policy implications based on stakeholders’ perceptions for integrated management of the Halda River: Bangabandhu Fisheries Heritage of Bangladesh', <i>Water Policy</i>, 24(3), pp. 517-533.</p>
-                                    </div>
-                                </div>
-                             </div>
-
                             <div id="others" class="asek-section">
                                 <div class="asek-section-title" style="margin-bottom: 15px;">
                                     <span>Others</span>
@@ -711,6 +728,7 @@
 
                                 <span class="badge-title">Conferences & Seminars</span>
                                 <ul class="list-items" style="margin-top: 15px;">
+                                    <li><strong>Making an Uncertain Future More Liveable! Adapting to Climate Change and Shifting to Sustainable Societies, 10th Students Conference on Climate Change, 2025</strong> - University of Greifswald (july 21, 2025)</li>
                                      <li><strong>Trending Technology in One Health 2023</strong> - City University of Hong Kong (April 4, 2023)</li>
                                     <li><strong>Coastal River Conference 2022</strong> - Kuakata, Bangladesh (January 28–29, 2022)</li>
                                      <li><strong>6th International Water Conference 2021</strong> - ActionAid Bangladesh (January 27–29, 2021)</li>
