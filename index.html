@@ -408,7 +408,7 @@
                                 <div class="asek-btn" style="margin-top: 30px;">
                                     <a href="#" class="generate-pdf-btn">Download Full CV</a>
                                 </div>
-                                </div>
+                            </div>
 
                             <div id="resume" class="asek-section">
                                 <div class="asek-section-title">
@@ -802,255 +802,179 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        (function() {
             "use strict";
 
-            const menuItems = document.querySelectorAll('.asek-sidebar-menu ul li');
-            const buttons = document.querySelectorAll('.full-link');
-            const sections = document.querySelectorAll('.asek-section');
-            const mainbar = document.querySelector('.asek-content-area');
-            
-            // To ensure precise scrolling math, make the scrolling container relative
-            mainbar.style.position = 'relative';
+            // Wait for DOM to be ready
+            document.addEventListener("DOMContentLoaded", function() {
+                const menuItems = document.querySelectorAll('.asek-sidebar-menu ul li');
+                const buttons = document.querySelectorAll('.full-link');
+                const sections = document.querySelectorAll('.asek-section');
+                const mainbar = document.querySelector('.asek-content-area');
+                
+                // Essential for accurate scroll calculations
+                mainbar.style.position = 'relative';
 
-            // --- Universal Navigation & Scrolling Function ---
-            function activateSectionAndScroll(targetHash) {
-                const targetElement = document.querySelector(targetHash);
-                if (!targetElement) return;
+                // --- MASTER NAVIGATION & SCROLL FUNCTION ---
+                function activateSectionAndScroll(targetHash, isInitialLoad = false) {
+                    const targetElement = document.querySelector(targetHash);
+                    if (!targetElement) return;
 
-                // Find which main tab/section contains the target element
-                const parentSection = targetElement.closest('.asek-section');
-                if (!parentSection) return;
+                    // Find which main tab/section contains the target
+                    const parentSection = targetElement.closest('.asek-section');
+                    if (!parentSection) return;
 
-                // 1. Activate the correct content section
-                sections.forEach(sec => sec.classList.remove('active'));
-                parentSection.classList.add('active');
+                    // 1. Activate the correct content section
+                    sections.forEach(sec => sec.classList.remove('active'));
+                    parentSection.classList.add('active');
 
-                // 2. Activate the correct sidebar menu item
-                menuItems.forEach(item => item.classList.remove('active'));
-                const correspondingMenuLink = document.querySelector(`.full-link[href="#${parentSection.id}"]`);
-                if (correspondingMenuLink) {
-                    correspondingMenuLink.closest('li').classList.add('active');
+                    // Force browser reflow so it registers the new display:block heights instantly
+                    void parentSection.offsetHeight; 
+
+                    // 2. Activate the correct sidebar menu item
+                    menuItems.forEach(item => item.classList.remove('active'));
+                    const correspondingMenuLink = document.querySelector(`.full-link[href="#${parentSection.id}"]`);
+                    if (correspondingMenuLink) {
+                        correspondingMenuLink.closest('li').classList.add('active');
+                    }
+
+                    // 3. Scroll to specific element (Longer delay on first load to allow custom fonts to render)
+                    const delay = isInitialLoad ? 300 : 50;
+                    setTimeout(() => {
+                        if (window.innerWidth < 768) {
+                            // Mobile scroll calculation
+                            const yOffset = -120; // Adjusted for mobile sticky header
+                            const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                            window.scrollTo({ top: y, behavior: 'smooth' });
+                        } else {
+                            // Desktop scroll calculation inside the scrollable container
+                            const scrollPos = targetElement.offsetTop - 50; // 50px visual padding
+                            mainbar.scrollTo({
+                                top: scrollPos,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, delay);
                 }
 
-                // 3. Scroll to the specific element (with a slight delay to allow display:block to render)
-                setTimeout(() => {
-                    if (window.innerWidth < 768) {
-                        // Mobile scroll (Window level)
-                        const yOffset = -145; // Offset for sticky header
-                        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                        window.scrollTo({ top: y, behavior: 'smooth' });
-                    } else {
-                        // Desktop scroll (Inside the specific container)
-                        mainbar.scrollTo({
-                            top: targetElement.offsetTop - 50, // 50px padding from the top
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 50);
-            }
-
-            // Vanilla JS: Menu Tab Switching Logic
-            function initTabMenu() {
+                // --- EVENT LISTENERS ---
+                
+                // 1. Sidebar clicks
                 buttons.forEach(button => {
                     button.addEventListener('click', function(e) {
                         e.preventDefault();
                         const targetId = this.getAttribute('href');
-                        
-                        // Switch tab and scroll
                         activateSectionAndScroll(targetId);
-                        
-                        // Update the URL hash without reloading the page
                         history.pushState(null, null, targetId);
                     });
                 });
-            }
-            initTabMenu();
 
-            // --- Check for deep link on initial page load ---
-            if (window.location.hash) {
-                activateSectionAndScroll(window.location.hash);
-            }
+                // 2. Handle manual URL changes while already on the page
+                window.addEventListener('hashchange', function() {
+                    activateSectionAndScroll(window.location.hash);
+                });
 
-            // Vanilla JS: PDF Generation Logic
-            const pdfBtns = document.querySelectorAll('.generate-pdf-btn');
-            pdfBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
+                // 3. Check for deep link on initial load
+                if (window.location.hash) {
+                    activateSectionAndScroll(window.location.hash, true);
+                }
 
-                    // 1. Create a temporary, hidden container for the PDF
-                    const printContainer = document.createElement('div');
-                     printContainer.id = 'cv-print-container'; 
-                    
-                    // 2. Inject specific print CSS to make it ATS-friendly, tight, justified, and properly spaced
-                    const printStyles = document.createElement('style');
-                    printStyles.innerHTML = `
-                        #cv-print-container { 
-                             padding: 0; 
-                            font-family: "Inter", sans-serif; 
-                            color: #1a1a1a !important; 
-                            background: #ffffff !important;
-                         }
-                        
-                        #cv-print-container p, #cv-print-container li, #cv-print-container span { 
-                             font-size: 10.5pt !important; 
-                            line-height: 1.4 !important; 
-                            text-align: justify !important; 
-                            margin-bottom: 4px !important; 
-                            color: #333333 !important;
-                        }
-                        
-                        #cv-print-container .asek-section-title h3 { 
-                            color: #235347 !important;
-                            font-size: 16pt !important; 
-                            font-family: "Lora", serif !important;
-                            margin-bottom: 2px !important; 
-                            margin-top: 15px !important;
-                        }
-                        #cv-print-container h2 { 
-                            color: #235347 !important;
-                            font-size: 14pt !important; 
-                            font-family: "Lora", serif !important;
-                            margin-top: 10px !important; 
-                            margin-bottom: 5px !important; 
-                            padding-bottom: 2px !important;
-                            border-bottom: 1px solid #235347 !important; 
-                        }
-                        #cv-print-container h4 { font-size: 11.5pt !important;
-                            margin-bottom: 0 !important; color: #111111 !important; font-weight: 600 !important;}
-                        
-                        #cv-print-container .asek-section-title { margin-bottom: 10px !important; }
-
-                        #cv-print-container .extra h3 { font-size: 20pt !important;
-                            margin-top: 0 !important; margin-bottom: 2px !important; color: #235347 !important; font-family: "Lora", serif !important;}
-                        #cv-print-container .extra span { font-size: 11.5pt !important;
-                            font-weight: 500 !important; color: #235347 !important; display: block !important; margin-bottom: 15px !important;}
-                        
-                        #cv-print-container .timeline-item { padding-bottom: 5px !important;
-                            margin-bottom: 8px !important; border-bottom: none !important; }
-                        #cv-print-container .timeline-header { display: flex !important;
-                            justify-content: space-between !important; align-items: baseline !important; margin-bottom: 2px !important; }
-                        #cv-print-container .timeline-header > div { display: flex;
-                            flex-direction: column; }
-                        #cv-print-container span.company { font-size: 10.5pt !important;
-                            font-weight: normal !important; font-style: italic !important; color: #555555 !important; display: block !important;
-                        }
-                        
-                        #cv-print-container .skill-wrap { display: flex !important;
-                            flex-wrap: wrap !important; gap: 6px !important; margin-top: 8px !important; margin-bottom: 15px !important;
-                        }
-                        #cv-print-container .skill-wrap span { display: inline-block !important;
-                            border: 1px solid #dddddd !important; color: #111111 !important; padding: 3px 8px !important; border-radius: 4px !important; font-size: 9.5pt !important;
-                            font-weight: 500 !important; background: transparent !important; }
-
-                        #cv-print-container span.year { padding: 0 !important;
-                            font-size: 10.5pt !important; border: none !important; color: #111111 !important; font-weight: 600 !important;
-                            background: transparent !important;}
-                        
-                        #cv-print-container .pub-grid { display: block; }
-                        #cv-print-container .pub-card { margin-bottom: 8px !important;
-                            padding: 0 !important; border: none !important; background: transparent !important; box-shadow: none !important; transform: none !important;
-                        }
-                        #cv-print-container .pub-card h4 { font-size: 11.5pt !important;
-                            margin-bottom: 2px !important; color: #111111 !important;}
-                        
-                        #cv-print-container .badge-title { margin: 10px 0 5px 0 !important;
-                            padding: 0 !important; font-size: 12pt !important; background: transparent !important; color: #235347 !important; border-radius: 0 !important; display: block !important; font-weight: bold;
-                            border: none !important;}
-                        
-                        #cv-print-container .contact-details { margin-top: 5px !important;
-                            background: transparent !important; color: #1a1a1a !important; padding: 0 !important; border: none !important;}
-                        #cv-print-container .contact-details ul li { display: inline-block;
-                            margin-right: 15px; border: none !important; padding: 0 !important; background: transparent !important;
-                        }
-                        #cv-print-container .contact-details ul li strong { display: inline-block;
-                            font-size: 10.5pt; font-weight: 600; text-transform: capitalize; opacity: 1; margin: 0 !important; color: var(--text-main) !important;
-                        }
-                        #cv-print-container .contact-details ul li strong::after { content: ': ';
-                            color: #1a1a1a !important; }
-                        #cv-print-container .contact-details ul li span, #cv-print-container .contact-details ul li a { display: inline-block;
-                            font-size: 10.5pt !important; color: #333333 !important;}
-                        
-                        #cv-print-container .contact-info-list { display: none !important; } 
-
-                        /* STRICT PAGE BREAK FIXES */
-                        #cv-print-container .timeline-item, 
-                        #cv-print-container .pub-card,
-                        #cv-print-container .list-items,
-                        #cv-print-container h2,
-                        #cv-print-container h3,
-                        #cv-print-container h4,
-                        #cv-print-container p,
-                        #cv-print-container li,
-                        #cv-print-container .skill-wrap,
-                        #cv-print-container .text-block { 
-                             page-break-inside: avoid !important; 
-                            break-inside: avoid !important; 
-                            -webkit-column-break-inside: avoid !important;
-                        }
-                    `;
-                    printContainer.appendChild(printStyles);
-
-                    // 3. Clone the relevant sections from your website
-                    const profileInfo = document.querySelector('.asek-profile-card .extra').cloneNode(true);
-                    const overview = document.getElementById('overview').cloneNode(true);
-                    const resume = document.getElementById('resume').cloneNode(true);
-                    const projects = document.getElementById('projects').cloneNode(true);
-                    const publications = document.getElementById('publications').cloneNode(true);
-                    const others = document.getElementById('others').cloneNode(true);
-                    
-                    // 4. Clean up the cloned data and stack them tightly
-                    const sections = [profileInfo, overview, resume, projects, publications, others];
-                    sections.forEach(sec => {
-                        // Remove buttons and extra breaks
-                        sec.querySelectorAll('.asek-btn').forEach(el => el.remove());
-                        sec.querySelectorAll('br').forEach(el => el.remove());
-                        
-                        // Remove section pre-titles
-                        sec.querySelectorAll('.asek-section-title span').forEach(el => el.remove());
-                        
-                         // Overview specific cleanup
-                        if(sec.id === 'overview') {
-                            const mainTitle = sec.querySelector('.asek-section-title');
-                            if (mainTitle) mainTitle.remove(); 
-                            const firstH4 = sec.querySelector('.text-block h4');
-                            if (firstH4) firstH4.remove(); 
-                        }
-                        
-                        sec.style.display = 'block';
-                        sec.style.animation = 'none';
-                        sec.style.marginBottom = '10px';
-                        
-                        printContainer.appendChild(sec);
-                    });
-
-                    // 5. Configure the PDF settings
-                    const opt = {
-                        margin:       [10, 10, 10, 10],
-                        filename:     'Abdullah_Al_Asek_CV.pdf',
-                        image:        { type: 'jpeg', quality: 1 },
-                        html2canvas:  { 
-                            scale: 2, 
-                            useCORS: true, 
-                            letterRendering: true,
-                            scrollY: 0 
-                        },
-                        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                        pagebreak:    { mode: ['css', 'legacy'], avoid: ['.pub-card', '.timeline-item', '.text-block', 'h2', 'h3', 'h4', '.list-items', 'p', 'li', '.skill-wrap'] } 
-                    };
-
-                    // 6. Generate PDF
-                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                    if (isMobile) {
-                        html2pdf().set(opt).from(printContainer).save();
-                    } else {
-                        html2pdf().set(opt).from(printContainer).toPdf().get('pdf').then(function(pdf) {
-                            window.open(pdf.output('bloburl'), '_blank');
-                        });
+                // 4. Fallback correction after everything (images/fonts) has fully loaded
+                window.addEventListener('load', function() {
+                    if (window.location.hash) {
+                        activateSectionAndScroll(window.location.hash, false);
                     }
                 });
+
+                // --- PDF GENERATION LOGIC ---
+                const pdfBtns = document.querySelectorAll('.generate-pdf-btn');
+                pdfBtns.forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        const printContainer = document.createElement('div');
+                        printContainer.id = 'cv-print-container'; 
+                        
+                        const printStyles = document.createElement('style');
+                        printStyles.innerHTML = `
+                            #cv-print-container { padding: 0; font-family: "Inter", sans-serif; color: #1a1a1a !important; background: #ffffff !important; }
+                            #cv-print-container p, #cv-print-container li, #cv-print-container span { font-size: 10.5pt !important; line-height: 1.4 !important; text-align: justify !important; margin-bottom: 4px !important; color: #333333 !important; }
+                            #cv-print-container .asek-section-title h3 { color: #235347 !important; font-size: 16pt !important; font-family: "Lora", serif !important; margin-bottom: 2px !important; margin-top: 15px !important; }
+                            #cv-print-container h2 { color: #235347 !important; font-size: 14pt !important; font-family: "Lora", serif !important; margin-top: 10px !important; margin-bottom: 5px !important; padding-bottom: 2px !important; border-bottom: 1px solid #235347 !important; }
+                            #cv-print-container h4 { font-size: 11.5pt !important; margin-bottom: 0 !important; color: #111111 !important; font-weight: 600 !important;}
+                            #cv-print-container .asek-section-title { margin-bottom: 10px !important; }
+                            #cv-print-container .extra h3 { font-size: 20pt !important; margin-top: 0 !important; margin-bottom: 2px !important; color: #235347 !important; font-family: "Lora", serif !important;}
+                            #cv-print-container .extra span { font-size: 11.5pt !important; font-weight: 500 !important; color: #235347 !important; display: block !important; margin-bottom: 15px !important;}
+                            #cv-print-container .timeline-item { padding-bottom: 5px !important; margin-bottom: 8px !important; border-bottom: none !important; }
+                            #cv-print-container .timeline-header { display: flex !important; justify-content: space-between !important; align-items: baseline !important; margin-bottom: 2px !important; }
+                            #cv-print-container .timeline-header > div { display: flex; flex-direction: column; }
+                            #cv-print-container span.company { font-size: 10.5pt !important; font-weight: normal !important; font-style: italic !important; color: #555555 !important; display: block !important; }
+                            #cv-print-container .skill-wrap { display: flex !important; flex-wrap: wrap !important; gap: 6px !important; margin-top: 8px !important; margin-bottom: 15px !important; }
+                            #cv-print-container .skill-wrap span { display: inline-block !important; border: 1px solid #dddddd !important; color: #111111 !important; padding: 3px 8px !important; border-radius: 4px !important; font-size: 9.5pt !important; font-weight: 500 !important; background: transparent !important; }
+                            #cv-print-container span.year { padding: 0 !important; font-size: 10.5pt !important; border: none !important; color: #111111 !important; font-weight: 600 !important; background: transparent !important;}
+                            #cv-print-container .pub-grid { display: block; }
+                            #cv-print-container .pub-card { margin-bottom: 8px !important; padding: 0 !important; border: none !important; background: transparent !important; box-shadow: none !important; transform: none !important; }
+                            #cv-print-container .pub-card h4 { font-size: 11.5pt !important; margin-bottom: 2px !important; color: #111111 !important;}
+                            #cv-print-container .badge-title { margin: 10px 0 5px 0 !important; padding: 0 !important; font-size: 12pt !important; background: transparent !important; color: #235347 !important; border-radius: 0 !important; display: block !important; font-weight: bold; border: none !important;}
+                            #cv-print-container .contact-details { margin-top: 5px !important; background: transparent !important; color: #1a1a1a !important; padding: 0 !important; border: none !important;}
+                            #cv-print-container .contact-details ul li { display: inline-block; margin-right: 15px; border: none !important; padding: 0 !important; background: transparent !important; }
+                            #cv-print-container .contact-details ul li strong { display: inline-block; font-size: 10.5pt; font-weight: 600; text-transform: capitalize; opacity: 1; margin: 0 !important; color: var(--text-main) !important; }
+                            #cv-print-container .contact-details ul li strong::after { content: ': '; color: #1a1a1a !important; }
+                            #cv-print-container .contact-details ul li span, #cv-print-container .contact-details ul li a { display: inline-block; font-size: 10.5pt !important; color: #333333 !important;}
+                            #cv-print-container .contact-info-list { display: none !important; } 
+                            /* STRICT PAGE BREAK FIXES */
+                            #cv-print-container .timeline-item, #cv-print-container .pub-card, #cv-print-container .list-items, #cv-print-container h2, #cv-print-container h3, #cv-print-container h4, #cv-print-container p, #cv-print-container li, #cv-print-container .skill-wrap, #cv-print-container .text-block { page-break-inside: avoid !important; break-inside: avoid !important; -webkit-column-break-inside: avoid !important; }
+                        `;
+                        printContainer.appendChild(printStyles);
+
+                        const profileInfo = document.querySelector('.asek-profile-card .extra').cloneNode(true);
+                        const overview = document.getElementById('overview').cloneNode(true);
+                        const resume = document.getElementById('resume').cloneNode(true);
+                        const projects = document.getElementById('projects').cloneNode(true);
+                        const publications = document.getElementById('publications').cloneNode(true);
+                        const others = document.getElementById('others').cloneNode(true);
+                        
+                        const sectionsArr = [profileInfo, overview, resume, projects, publications, others];
+                        sectionsArr.forEach(sec => {
+                            sec.querySelectorAll('.asek-btn').forEach(el => el.remove());
+                            sec.querySelectorAll('br').forEach(el => el.remove());
+                            sec.querySelectorAll('.asek-section-title span').forEach(el => el.remove());
+                            
+                            if(sec.id === 'overview') {
+                                const mainTitle = sec.querySelector('.asek-section-title');
+                                if (mainTitle) mainTitle.remove(); 
+                                const firstH4 = sec.querySelector('.text-block h4');
+                                if (firstH4) firstH4.remove(); 
+                            }
+                            
+                            sec.style.display = 'block';
+                            sec.style.animation = 'none';
+                            sec.style.marginBottom = '10px';
+                            
+                            printContainer.appendChild(sec);
+                        });
+
+                        const opt = {
+                            margin:       [10, 10, 10, 10],
+                            filename:     'Abdullah_Al_Asek_CV.pdf',
+                            image:        { type: 'jpeg', quality: 1 },
+                            html2canvas:  { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
+                            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                            pagebreak:    { mode: ['css', 'legacy'], avoid: ['.pub-card', '.timeline-item', '.text-block', 'h2', 'h3', 'h4', '.list-items', 'p', 'li', '.skill-wrap'] } 
+                        };
+
+                        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                        if (isMobile) {
+                            html2pdf().set(opt).from(printContainer).save();
+                        } else {
+                            html2pdf().set(opt).from(printContainer).toPdf().get('pdf').then(function(pdf) {
+                                window.open(pdf.output('bloburl'), '_blank');
+                            });
+                        }
+                    });
+                });
             });
-        });
+        })();
     </script>
 </body>
 </html>
