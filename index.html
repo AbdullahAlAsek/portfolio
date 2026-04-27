@@ -802,49 +802,76 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-         document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() {
             "use strict";
+
+            const menuItems = document.querySelectorAll('.asek-sidebar-menu ul li');
+            const buttons = document.querySelectorAll('.full-link');
+            const sections = document.querySelectorAll('.asek-section');
+            const mainbar = document.querySelector('.asek-content-area');
+            
+            // To ensure precise scrolling math, make the scrolling container relative
+            mainbar.style.position = 'relative';
+
+            // --- Universal Navigation & Scrolling Function ---
+            function activateSectionAndScroll(targetHash) {
+                const targetElement = document.querySelector(targetHash);
+                if (!targetElement) return;
+
+                // Find which main tab/section contains the target element
+                const parentSection = targetElement.closest('.asek-section');
+                if (!parentSection) return;
+
+                // 1. Activate the correct content section
+                sections.forEach(sec => sec.classList.remove('active'));
+                parentSection.classList.add('active');
+
+                // 2. Activate the correct sidebar menu item
+                menuItems.forEach(item => item.classList.remove('active'));
+                const correspondingMenuLink = document.querySelector(`.full-link[href="#${parentSection.id}"]`);
+                if (correspondingMenuLink) {
+                    correspondingMenuLink.closest('li').classList.add('active');
+                }
+
+                // 3. Scroll to the specific element (with a slight delay to allow display:block to render)
+                setTimeout(() => {
+                    if (window.innerWidth < 768) {
+                        // Mobile scroll (Window level)
+                        const yOffset = -145; // Offset for sticky header
+                        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    } else {
+                        // Desktop scroll (Inside the specific container)
+                        mainbar.scrollTo({
+                            top: targetElement.offsetTop - 50, // 50px padding from the top
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 50);
+            }
+
             // Vanilla JS: Menu Tab Switching Logic
             function initTabMenu() {
-                const menuItems = document.querySelectorAll('.asek-sidebar-menu ul li');
-                const buttons = document.querySelectorAll('.full-link');
-                const sections = document.querySelectorAll('.asek-section');
-                const mainbar = document.querySelector('.asek-content-area');
                 buttons.forEach(button => {
                     button.addEventListener('click', function(e) {
                         e.preventDefault();
-                        const parentLi = this.closest('li');
                         const targetId = this.getAttribute('href');
-
-                        if (!parentLi.classList.contains('active')) {
-                            // Reset active states
-                            menuItems.forEach(item => item.classList.remove('active'));
-                             sections.forEach(sec => sec.classList.remove('active'));
-
-                            // Add new active states
-                            parentLi.classList.add('active');
-                             const targetSection = document.querySelector(targetId);
-                            if(targetSection) targetSection.classList.add('active');
-
-                            // Scroll handling
-                            if (window.innerWidth < 768) {
-                                // For mobile, scroll body down to content area with slight offset for sticky menu
-                                const contentRight = document.querySelector('.layout-content');
-                                window.scrollTo({
-                                    top: contentRight.offsetTop - 145, // Offset for sticky header + dock
-                                    behavior: 'smooth'
-                                 });
-                            } else {
-                                mainbar.scrollTo({
-                                    top: 0,
-                                     behavior: 'smooth'
-                                });
-                            }
-                        }
+                        
+                        // Switch tab and scroll
+                        activateSectionAndScroll(targetId);
+                        
+                        // Update the URL hash without reloading the page
+                        history.pushState(null, null, targetId);
                     });
                 });
             }
             initTabMenu();
+
+            // --- Check for deep link on initial page load ---
+            if (window.location.hash) {
+                activateSectionAndScroll(window.location.hash);
+            }
+
             // Vanilla JS: PDF Generation Logic
             const pdfBtns = document.querySelectorAll('.generate-pdf-btn');
             pdfBtns.forEach(btn => {
@@ -856,7 +883,6 @@
                      printContainer.id = 'cv-print-container'; 
                     
                     // 2. Inject specific print CSS to make it ATS-friendly, tight, justified, and properly spaced
-                    // We FORCE black text and white backgrounds here so the Dark Theme doesn't print!
                     const printStyles = document.createElement('style');
                     printStyles.innerHTML = `
                         #cv-print-container { 
